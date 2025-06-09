@@ -1,7 +1,6 @@
 package com.kotlinxkyle.fan.ui.screens
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,7 +21,8 @@ import com.kotlinxkyle.fan.data.Sentence
 @Composable
 fun CompositionBar(
     sentence: Sentence,
-    onClearClick: () -> Unit // Add a click handler for the clear action
+    onSpeakClick: () -> Unit, // Add handler for speaking
+    onClearClick: () -> Unit
 ) {
     val sentenceText = sentence.words.joinToString(" ") { it.text }
 
@@ -32,8 +32,7 @@ fun CompositionBar(
             .height(64.dp)
             .background(Color.LightGray)
             .padding(horizontal = 16.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
+        verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
             text = sentenceText,
@@ -41,6 +40,10 @@ fun CompositionBar(
             modifier = Modifier.weight(1f),
             textAlign = TextAlign.Center
         )
+        Spacer(modifier = Modifier.width(8.dp))
+        Button(onClick = onSpeakClick) { // The new Speak Button
+            Text(text = "Speak")
+        }
         Spacer(modifier = Modifier.width(8.dp))
         Button(onClick = onClearClick) {
             Text(text = "Clear")
