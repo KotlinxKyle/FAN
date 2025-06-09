@@ -58,6 +58,7 @@ dependencies {
     // Add the dependency for Firebase Firestore (for a future step)
     // This will be used to store user vocabulary and settings.
     implementation(libs.firebase.firestore)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
