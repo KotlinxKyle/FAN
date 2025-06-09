@@ -1,5 +1,6 @@
 package com.kotlinxkyle.fan.viewmodel
 
+
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import com.kotlinxkyle.fan.data.Sentence
@@ -32,15 +33,54 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun loadInitialData() {
-        // ... (your existing data loading logic)
+        // In a real app, this would load from a database or network.
+        // This is the new, more comprehensive core vocabulary list.
         val wordList = listOf(
-            Word("I", "", "pronoun"), Word("want", "", "verb"), Word("a", "", "article"),
-            Word("the", "", "article"), Word("ball", "", "noun"), Word("play", "", "verb"),
-            Word("go", "", "verb"), Word("outside", "", "noun")
+            // Pronouns
+            Word("I", "", "pronoun"), Word("you", "", "pronoun"), Word("he", "", "pronoun"),
+            Word("she", "", "pronoun"), Word("it", "", "pronoun"), Word("we", "", "pronoun"),
+            Word("they", "", "pronoun"), Word("me", "", "pronoun"), Word("my", "", "pronoun"),
+
+            // Verbs
+            Word("want", "", "verb"), Word("go", "", "verb"), Word("play", "", "verb"),
+            Word("eat", "", "verb"), Word("drink", "", "verb"), Word("see", "", "verb"),
+            Word("like", "", "verb"), Word("love", "", "verb"), Word("help", "", "verb"),
+            Word("stop", "", "verb"), Word("look", "", "verb"), Word("listen", "", "verb"),
+            Word("open", "", "verb"), Word("close", "", "verb"), Word("give", "", "verb"),
+            Word("get", "", "verb"), Word("feel", "", "verb"),
+
+            // Nouns (People, Places)
+            Word("mom", "", "noun"), Word("dad", "", "noun"), Word("teacher", "", "noun"),
+            Word("friend", "", "noun"), Word("home", "", "noun"), Word("school", "", "noun"),
+            Word("outside", "", "noun"), Word("park", "", "noun"),
+
+            // Nouns (Food)
+            Word("apple", "", "noun"), Word("cookie", "", "noun"), Word("juice", "", "noun"),
+            Word("water", "", "noun"), Word("snack", "", "noun"), Word("milk", "", "noun"),
+            Word("food", "", "noun"),
+
+            // Nouns (Things)
+            Word("ball", "", "noun"), Word("book", "", "noun"), Word("game", "", "noun"),
+            Word("TV", "", "noun"), Word("phone", "", "noun"), Word("toilet", "", "noun"),
+            Word("bed", "", "noun"), Word("light", "", "noun"),
+
+            // Adjectives
+            Word("big", "", "adjective"), Word("little", "", "adjective"), Word("good", "", "adjective"),
+            Word("bad", "", "adjective"), Word("happy", "", "adjective"), Word("sad", "", "adjective"),
+            Word("tired", "", "adjective"), Word("hot", "", "adjective"), Word("cold", "", "adjective"),
+            Word("loud", "", "adjective"), Word("quiet", "", "adjective"),
+
+            // Social & Other
+            Word("more", "", "social"), Word("finished", "", "social"), Word("please", "", "social"),
+            Word("thank you", "", "social"), Word("sorry", "", "social"), Word("yes", "", "social"),
+            Word("no", "", "social"), Word("hello", "", "social"), Word("goodbye", "", "social")
         )
         val suggestionsList = listOf(
-            Word("please", "", "interjection"), Word("thank you", "", "interjection")
+            Word("I want", "", "phrase"),
+            Word("I feel", "", "phrase"),
+            Word("Let's go", "", "phrase")
         )
+
         _uiState.value = MainUiState(allWords = wordList, suggestions = suggestionsList)
     }
 
